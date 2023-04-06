@@ -1,0 +1,111 @@
+body{
+	margin: revert;
+}
+.login_div{
+	display: grid;
+	grid-template-columns: 40% 30%;
+	grid-gap: 10px;
+	align-items: center;
+	justify-content: center;
+}
+
+.login_img{
+	margin: 5px 0px 0px 5px;
+}
+
+.login_container{
+	background: rgba(131, 187, 200, 0.51);
+	padding: 30px;
+	margin: 5px;
+	margin-top: 25px;
+	border-radius: 5%;
+}
+
+.login_container input{
+	border-radius: 5px;
+}
+
+.login_container a{
+	text-decoration: none;
+	font-size: 12px;
+	line-height: 20px;
+	color: black;
+}
+
+.login_container a:hover{
+	color: #0a241a;
+}
+
+.div_container{
+	display: grid;
+	grid-template-columns: 50% 50%;
+	grid-gap: 5px;
+	align-items: center;
+	justify-content: center;
+}
+
+.form_container{
+	margin: 5px;
+	padding: 10px;
+	background-color: blanchedalmond;
+	border-radius: 5px;
+}
+
+.user_role{
+	background-color: cornsilk;
+	margin: 10px;
+	padding: 10px;
+	border-radius: 5px;
+}
+
+.reg_container{
+	background-color: floralwhite;
+	margin: 10px;
+	padding: 10px;
+	overflow: hidden;
+	border-radius: 5px;
+}
+
+.form_container h3{
+	text-align: left;
+	font-size: 30px;
+	margin-top: 5px;
+}
+
+.form_container input[type=text],[type=password],[type=email]{
+	padding: 5px;
+	margin-bottom: 5px;
+	outline: none;
+	font-size: 16px;
+	border-radius: 5px;
+	text-align: justify;
+	line-height: 5px;
+}
+
+.invalid-feedback {
+	display: none;
+}
+
+.errorch {
+	border: 2px solid red;
+	color: red;
+}
+
+.forgot_div{
+	display: grid;
+	grid-template-columns: 30% 30%;
+	grid-gap: 10px;
+	align-items: center;
+	justify-content: center;
+}
+
+.forgot_container{
+	background: rgb(126, 198, 178);
+	padding: 30px;
+	margin: 5px;
+	border-radius: 5%;
+}
+
+.forgot_img{
+	margin: 5px;
+}
