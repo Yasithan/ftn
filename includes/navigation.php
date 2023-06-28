@@ -1,5 +1,5 @@
 <?php
-	if (!isset($_SESSION['SESSION_EMAIL'])) {
+	if (!isset($_SESSION['email'])) {
 ?>
 		<nav class="navbar navbar-expand-lg bg-light">
 		<div class="container-fluid">

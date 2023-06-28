@@ -1,5 +1,5 @@
 <?php
-	if (isset($_SESSION['SESSION_EMAIL'])) {
+	if (isset($_SESSION['email'])) {
 		?>
 		<nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse" style="">
 			<div class="position-sticky pt-3 sidebar-sticky">
@@ -9,7 +9,7 @@
 				</div>
 				<ul class="nav flex-column">
 		<?php 
-		if ($_SESSION['USERTYPE'] == "Business") {
+		if ($_SESSION['role'] === "1") {
 			?>
 			<li class="nav-item">
 				<a class="nav-link" href="create.php">
@@ -22,7 +22,7 @@
 				</a>
 			</li>
 		<?php 
-		} elseif ($_SESSION['USERTYPE'] === "Charity") {
+		} elseif ($_SESSION['role'] === "2") {
 		?>
 				<li class="nav-item">
 					<a class="nav-link" href="available.php">
@@ -35,7 +35,7 @@
 					</a>
 				</li>
 		<?php
-		} elseif ($_SESSION['USERTYPE'] === "Volunteer") {
+		} elseif ($_SESSION['role'] === "3") {
 		?>
 				<li class="nav-item">
 					<a class="nav-link" href="claimed.php">
@@ -48,7 +48,7 @@
 					</a>
 				</li>
 		<?php
-		} elseif ($_SESSION['USERTYPE'] === "Admin") {
+		} elseif ($_SESSION['role'] === "4") {
 		?>
 				<li class="nav-item">
 					<a class="nav-link" href="donations.php">

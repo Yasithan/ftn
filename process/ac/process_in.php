@@ -4,7 +4,6 @@
 	if (isset($_POST['email']) && isset($_POST['password'])) {
 		$email = mysqli_real_escape_string($conn, $_POST['email']);
 		$password = mysqli_real_escape_string($conn, $_POST['password']);
-		session_unset();
 
 		$sql = "SELECT * FROM users WHERE email='$email'";
 		$result = mysqli_query($conn, $sql);
@@ -29,6 +28,7 @@
 					);
 				} else {
 					$_SESSION['email'] = $email;
+					$_SESSION['role'] = $row["user_type_id"];
 					$response = array(
 						"success" => true,
 						"user_type_id" => $row["user_type_id"] 
