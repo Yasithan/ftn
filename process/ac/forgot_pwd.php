@@ -1,6 +1,5 @@
 <?php
 	include ($_SERVER['DOCUMENT_ROOT']) . '/ftn/includes/config.php';
-	include ($_SERVER['DOCUMENT_ROOT']) . '/ftn/includes/header.php';
 	use PHPMailer\PHPMailer\PHPMailer;
 	use PHPMailer\PHPMailer\SMTP;
 
@@ -22,14 +21,14 @@
 				try {
 					$mail->SMTPDebug = 0;
 					$mail->isSMTP();
-					$mail->Host = 'smtp.gmail.com';
+					$mail->Host = 'smtp.office365.com';
 					$mail->SMTPAuth = true;
-					$mail->Username = 'e1741064@bit.mrt.ac.lk';
-					$mail->Password = 'Windows8.1';
-					$mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
-					$mail->Port = 465;
+					$mail->Username = 'feedtheneed.lk@hotmail.com';
+					$mail->Password = 'proFTNlk007$$';
+					$mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+					$mail->Port = 587;
 
-					$mail->setFrom('e1741064@bit.mrt.ac.lk', 'Feed the Need');
+					$mail->setFrom('feedtheneed.lk@hotmail.com', 'Feed the Need');
 					$mail->addAddress($email, $name);
 
 					$mail->isHTML(true);
@@ -39,7 +38,7 @@
 						<p>Hi '.$name.'!</p>
 						<p>Trouble signing in?</p>
 						<p>Please click <a href="http://localhost/ftn/process/ac/reset_link.php?token='.$verification_token.'">here</a> to reset your password.</p>
-						<p>If you have any questions in the meantime please write an <a href="mailto:e1741064@bit.mrt.ac.lk">email</a> or <a href="tel:+94771878984">call</a> us.</p>
+						<p>If you have any questions in the meantime please write an <a href="mailto:feedtheneed.lk@hotmail.com">email</a> or <a href="tel:+94771878984">call</a> us.</p>
 					</div>';
 
 					$mail->send();

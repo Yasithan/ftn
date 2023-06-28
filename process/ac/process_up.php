@@ -66,14 +66,14 @@
 		try {
 			$mail->SMTPDebug = 0;
 			$mail->isSMTP();
-			$mail->Host = 'smtp.gmail.com';
+			$mail->Host = 'smtp.office365.com';
 			$mail->SMTPAuth = true;
-			$mail->Username = 'e1741064@bit.mrt.ac.lk';
-			$mail->Password = 'Windows8.1';
-			$mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
-			$mail->Port = 465;
+			$mail->Username = 'feedtheneed.lk@hotmail.com';
+			$mail->Password = 'proFTNlk007$$';
+			$mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+			$mail->Port = 587;
 
-			$mail->setFrom('e1741064@bit.mrt.ac.lk', 'Feed the Need');
+			$mail->setFrom('feedtheneed.lk@hotmail.com', 'Feed the Need');
 			$mail->addAddress($email, $name);
 
 			$mail->isHTML(true);
@@ -82,7 +82,7 @@
 			<p>Hi '.$name.'!</p>
 			<p>Thanks for signing up to our surplus food redistribution platform!</br>
 			<p>Simply click <a href="http://localhost/ftn/process/ac/verify.php?token='.$verification_token.'">here</a> to verify your email address.</p>
-			<p>If you have any questions in the meantime please write an <a href="mailto:e1741064@bit.mrt.ac.lk">email</a> or <a class="text-muted" href="tel:+94771878984">call</a> us.</p></div>';
+			<p>If you have any questions in the meantime please write an <a href="mailto:feedtheneed.lk@hotmail.com">email</a> or <a class="text-muted" href="tel:+94771878984">call</a> us.</p></div>';
 
 			$mail->send();
 			return true;
