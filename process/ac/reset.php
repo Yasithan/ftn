@@ -1,8 +1,20 @@
 <?php
 	include ($_SERVER['DOCUMENT_ROOT']) . '/ftn/includes/config.php';
-	include ($_SERVER['DOCUMENT_ROOT']) . '/ftn/includes/header.php';
-	if (!isset($_SESSION['user_id'])) {
-		header("Location: forgot.php");
+	
+	if (isset($_GET['token'])) {
+		$token = $_GET["token"];
+		$query = "SELECT * FROM users WHERE verification_token = '$token'";
+		$result = mysqli_query($conn, $query);
+		if (mysqli_num_rows($result) == 1) {
+			$row = mysqli_fetch_assoc($result);
+			$name = $row['name'];
+			$user_id = $row['user_id'];
+			setcookie('reset', $user_id, time() + 3600, '/');
+		}
+	}
+	if (!isset($_GET['token']) || mysqli_num_rows($result) != 1) {
+		setcookie('reset', 'Invalid reset link.', time() + 3600 , '/');
+		header('Location: forgot.php');
 	}
 ?>
 
@@ -34,7 +46,7 @@
 		<div class="forgot_container">
 			<div id="alert" class="alert" style="display: none;"></div>
 			<h2>Reset password</h2>
-			<?php echo "Hi " . $_SESSION['name']; ?>
+			<?php echo "Hi " . $name; ?>
 			<p>Please create a new password for your account.</p>
 			<form action="" id="reset_form" method="post">
 				<div class="form-floating mb-3">

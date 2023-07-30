@@ -31,9 +31,17 @@
 			</div>
 			<div class="login_container">
 				<?php
-					if (isset($_SESSION['message'])) {
-						echo '<div id="alert" class="alert alert-info text-center">' . $_SESSION['message'] . '</div>';
-						unset($_SESSION['message']);
+					
+					if (isset($_COOKIE['verification_status'])) {
+						if ($_COOKIE['verification_status'] === 'verified') {
+							echo '<div id="alert" class="alert alert-info text-center">This email address is already verified.</div>';
+						} elseif ($_COOKIE['verification_status'] === 'completed') {
+								echo '<div id="alert" class="alert alert-success text-center">Your email address has been verified.</div>';
+						}	elseif ($_COOKIE['verification_status'] === 'invalid') {
+								echo '<div id="alert" class="alert alert-danger text-center">Invalid verification link.</div>';
+						}
+
+						setcookie('verification_status', '', time() - 3600, '/');
 					}
 				?>
 				<div id="alert" class="alert" style="display: none;"></div>

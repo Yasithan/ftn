@@ -1,7 +1,6 @@
 <?php
 	include ($_SERVER['DOCUMENT_ROOT']) . '/ftn/includes/config.php';
-	include ($_SERVER['DOCUMENT_ROOT']) . '/ftn/includes/header.php';
-	//echo '<pre>' . print_r($_SESSION, TRUE) . '</pre>';
+	include ($_SERVER['DOCUMENT_ROOT']) . '/ftn/includes/access_control.php';
 ?>
 
 <!DOCTYPE html>
@@ -31,10 +30,10 @@
 		</div>
 		<div class="forgot_container">
 			<div id="alert" class="alert" style="display: none;"></div>
-			<?php 
-				if (isset($_SESSION['message'])) {
-					echo '<div id="alert" class="alert alert-danger text-center">' . $_SESSION['message'] . '</div>';
-					unset($_SESSION['message']);
+			<?php
+				if (isset($_COOKIE['reset'])) {
+					echo '<div id="alert" class="alert alert-danger text-center">' . $_COOKIE['reset'] . '</div>';
+					setcookie('reset', '', time() - 3600, '/');
 				}
 			?>
 			<h2>Forgot password?</h2>

@@ -1,6 +1,4 @@
 <?php
-	session_start();
-	include ($_SERVER['DOCUMENT_ROOT']) . '/ftn/includes/header.php';
 	include ($_SERVER['DOCUMENT_ROOT']) . '/ftn/includes/config.php';
 
 	$verification_token = $_GET["token"];
@@ -12,17 +10,18 @@
 		$user = mysqli_fetch_assoc($result);
 
 		if ($user['is_verified']) {
-			$_SESSION['message'] = "This email address is already verified.";
+			$cookie_value = "verified";
 		} else {
 			$user_id = $user["user_id"];
 			$query = "UPDATE users SET is_verified = 1 WHERE user_id = $user_id";
 			mysqli_query($conn, $query);
-			$_SESSION['message'] = "Your email address has been verified.";
+			$cookie_value = "completed";
 		}
 	} else {
-		$_SESSION['message'] = "Invalid verification link.";
+		$cookie_value = "invalid";
 	}
 
+	setcookie('verification_status', $cookie_value, time() + 3600, '/');
 	header("Location: sign_in.php");
 	exit();
 ?>
