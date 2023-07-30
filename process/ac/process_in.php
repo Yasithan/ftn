@@ -29,6 +29,8 @@
 				} else {
 					$_SESSION['email'] = $email;
 					$_SESSION['role'] = $row["user_type_id"];
+					$_SESSION['name'] = $row["name"];
+					$_SESSION['id'] = $row["user_id"];
 					$response = array(
 						"success" => true,
 						"user_type_id" => $row["user_type_id"] 
