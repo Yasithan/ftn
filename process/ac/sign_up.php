@@ -1,6 +1,6 @@
 <?php 
 	include ($_SERVER['DOCUMENT_ROOT'] . '/ftn/includes/config.php');
-	include ($_SERVER['DOCUMENT_ROOT'] . '/ftn/includes/header.php');
+	include ($_SERVER['DOCUMENT_ROOT']) . '/ftn/includes/access_control.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
