@@ -37,7 +37,7 @@
 					<div>
 						<p>Hi '.$name.'!</p>
 						<p>Trouble signing in?</p>
-						<p>Please click <a href="http://localhost/ftn/process/ac/reset_link.php?token='.$verification_token.'">here</a> to reset your password.</p>
+						<p>Please click <a href="http://localhost/ftn/process/ac/reset.php?token='.$verification_token.'">here</a> to reset your password.</p>
 						<p>If you have any questions in the meantime please write an <a href="mailto:feedtheneed.lk@hotmail.com">email</a> or <a href="tel:+94771878984">call</a> us.</p>
 					</div>';
 
